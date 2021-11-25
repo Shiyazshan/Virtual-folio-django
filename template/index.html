@@ -7,7 +7,7 @@
     <title>Virtual-folio</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
     <link rel="preconnect" href="{% static 'https://fonts.googleapis.com' %}">
-        <link rel="preconnect" href="'https://fonts.gstatic.com' %}" crossorigin>
+        <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" crossorigin>
         <link href="{% static 'https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300&display=swap' %}" rel="stylesheet">
         <link
         rel="icon"
@@ -38,11 +38,13 @@
                     <a href="" class="button">En</a>
                 </div>
             </header>
+            <!-- {% for profile in profiles %} -->
             <section class="wrapper">
                         <small>Welcome</small>
-                        <h1>I'm <b>Mohammed</b> Shiyas</h1>
-                        <a href="#" class="text">UI/UX & Web Designer</a>
+                        <h1>Mohammed Shiyas</h1>
+                        <a href="#" class="text">Software Engineer</a>
             </section>
+            <!-- {% endfor %} -->
         </section>
     </section>
     <section id="profile">
@@ -72,6 +74,7 @@
                         Download CV
                     </a>
                 </div>
+
             </div>
         </section>
     </section>
@@ -363,7 +366,7 @@
                                 <img src="{% static 'images/work/work-4.jpg' %}" alt="work">
                                 <div class="text">
                                     <h2>Drugs Delivery App</h2>
-                                    <h5>- ' %}Health, Drugs</h5>
+                                    <h5>- Health, Drugs</h5>
                                 </div>
                             </div>
                         </li>

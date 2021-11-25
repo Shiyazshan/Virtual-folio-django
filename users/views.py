@@ -3,7 +3,6 @@ from users.models import Profile,Address,Education,Experience,Skill,SkillItem
 
 
 def index(request):
-    profile = Profile.objects.all()
     address = Address.objects.all()
     education = Education.objects.all()
     experience = Experience.objects.all()
@@ -12,7 +11,6 @@ def index(request):
 
 
     context = {
-        "profile" : profile,
         "address" : address,
         "education" : education,
         "experience" : experience,
@@ -21,3 +19,12 @@ def index(request):
 
     }
     return render(request, "index.html",context = context)
+
+
+def profile(request,pk):
+    profile = Profile.objects.get(pk=pk)[:2]
+
+    context = {
+        "profile" : profile
+    }
+    return render(request,"index.html",context=context)

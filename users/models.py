@@ -12,7 +12,7 @@ class Profile(models.Model):
     image = models.ImageField(upload_to="profile/")
     name = models.CharField(max_length=255)
     designation = models.CharField(max_length=255)
-    address = models.ForeignKey("users.Address",on_delete = models.CASCADE)
+    address = models.ForeignKey("users.Address",on_delete = models.CASCADE,blank=True,null=True)
     description = models.TextField()
     age = models.IntegerField()
     gender = models.TextField(choices=PROFILE_GENDER)
