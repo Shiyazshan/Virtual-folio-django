@@ -8,6 +8,7 @@ def index(request):
     experience = Experience.objects.all()
     skill = Skill.objects.all()
     skillitem = SkillItem.objects.all()
+    profile = Profile.objects.all()
 
 
     context = {
@@ -16,6 +17,7 @@ def index(request):
         "experience" : experience,
         "skill" : skill,
         "skillitem" : skillitem,
+        "profile" : profile,
 
     }
     return render(request, "index.html",context = context)

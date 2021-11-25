@@ -310,7 +310,7 @@ br.clear {
     #2a60f6);
   	background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
+    transition: all .75s ease-in;
 }
 #profile section.wrapper div.container div.right a.button:hover{
 	background-position: 0 0;
@@ -377,7 +377,7 @@ background: white;
     #e5ff00);
  	 background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
+    transition: all .75s ease-in;
 }
 #myskills section.wrapper section.container div.left div.item div.skillbar div.percentage:hover{
 	background-position: 0 0;
@@ -399,7 +399,7 @@ background: white;
     #e5ff00);
   	background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
+    transition: all .75s ease-in;
 }
 #myskills section.wrapper section.container div.left div.item div.skillbar div.php:hover{
 	background-position: 0 0;
@@ -418,7 +418,7 @@ background: white;
     #e5ff00);
   	background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
+    transition: all .75s ease-in;
 }
 #myskills section.wrapper section.container div.left div.item div.skillbar div.html:hover{
 	background-position: 0 0;
@@ -437,7 +437,7 @@ background: white;
     #e5ff00);
   	background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
+    transition: all .75s ease-in;
 }
 #myskills section.wrapper section.container div.left div.item div.skillbar div.python:hover{
 	background-position: 0 0;
@@ -478,7 +478,7 @@ background: white;
     #e5ff00);
   	background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
+    transition: all .75s ease-in;
 }
 #myskills section.wrapper section.container div.right div.item div.skillbar div.design:hover{
 	background-position: 0 0;
@@ -497,7 +497,7 @@ background: white;
     #e5ff00);
   	background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
+    transition: all .75s ease-in;
 }
 #myskills section.wrapper section.container div.right div.item div.skillbar div.web:hover{
 	background-position: 0 0;
@@ -516,7 +516,7 @@ background: white;
     #e5ff00);
   	background-position: 100% 0;
     background-size: 200% 100%;
-    transition: all .25s ease-in;
+    transition: all .75s ease-in;
 }
 #myskills section.wrapper section.container div.right div.item div.skillbar div.logo:hover{
 	background-position: 0 0;

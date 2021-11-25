@@ -3,12 +3,12 @@ from works.models import Project,Service
 
 
 def index(request):
-    project = Project.objects.all()
-    service = Service.objects.all()
+    projects = Project.objects.all()
+    services = Service.objects.all()
 
     context = {
-        "project" : project,
-        "service" : service,
+        "projects" : projects,
+        "services" : services,
     }
     return render(request,"index.html",context=context)
 

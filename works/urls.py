@@ -1,11 +1,11 @@
 from django.urls import path
-from web.views import index
+from works.views import index
 
 
 app_name = "works"
 
 
 urlpatterns = [
-    path("",index, name="index")
+    path("works/index",index, name="index")
 
 ]

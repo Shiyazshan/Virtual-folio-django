@@ -1,6 +1,6 @@
+{% load static %}
 <html lang="en">
 <head>
-    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,17 +38,18 @@
                     <a href="" class="button">En</a>
                 </div>
             </header>
-            <!-- {% for profile in profiles %} -->
+            {% for single in profile %}
             <section class="wrapper">
                         <small>Welcome</small>
-                        <h1>Mohammed Shiyas</h1>
-                        <a href="#" class="text">Software Engineer</a>
+                        <h1> {{single.name}}</h1>
+                        <a href="#" class="text">{{single.designation}}</a>
             </section>
-            <!-- {% endfor %} -->
+            {% endfor %}
         </section>
     </section>
     <section id="profile">
         <section class="wrapper">
+            
             <div class="container">
                 <div class="left">
                     <div class="img-container">
@@ -57,7 +58,8 @@
                     </div>
                 </div>
                 <div class="right">
-                    <h1>Mohammed Shiyas</h1>
+                
+                    <h1>Mohammed Shiyas </h1>
                     <h6>UI/UX & Web Designer</h6>
                     <p>Creating user-centered designs by understanding business requirements,
                         and user feedback. Creating user flows, wireframes, prototypes and mockups.
@@ -74,8 +76,8 @@
                         Download CV
                     </a>
                 </div>
-
             </div>
+           
         </section>
     </section>
     <section id="myskills">
@@ -244,14 +246,16 @@
             <h4>service</h4>
             <h1>What can i do?</h1>
             <ul>
+                {% for service in services %}
                 <li>
                     <div class="image-container">
-                        <img src="{% static 'images/paint-bucket.png' %}" alt="paint-bucket" />
+                        <img src="{{service.image.url}}" alt="paint-bucket" />
                     </div>
-                    <h2>Web Design</h2>
-                    <p>There are many variations of passages of lorem ipsum available</p>
+                    <h2>{{service.title}</h2>
+                    <p>{{service.description}}</p>
                 </li>
-                <li>
+                {% endfor %}
+                <!-- <li>
                     <div class="image-container">
                         <img src="{% static 'images/search.png' %}" alt="Search">
                     </div>
@@ -272,7 +276,7 @@
                     </div>
                     <h2>Web Development</h2>
                     <p>There are many variations of passages of lorem ipsum available</p>
-                </li>
+                </li> -->
             </ul>
         </section>
     </section>

@@ -3,7 +3,7 @@ from users.models import Profile,Address,Education,Experience,Skill,SkillItem
 
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ["id", "image" , "name" ,"designation", "address", "description", "age", "gender", "resume"]
+    list_display = ["id", "image", "name", "designation", "address", "description", "age", "gender", "resume"]
 admin.site.register(Profile)
 
 admin.site.register(Address)
