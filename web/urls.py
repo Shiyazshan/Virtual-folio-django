@@ -6,5 +6,6 @@ app_name = "web"
 
 
 urlpatterns = [
-    path("web/index",index, name="index")
+    path("",index, name="index"),
+    path("subscribe/",index, name="subscribe")
 ]

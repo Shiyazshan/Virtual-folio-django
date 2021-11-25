@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from works.models import Project,Service
 
 
@@ -10,5 +11,6 @@ def index(request):
         "projects" : projects,
         "services" : services,
     }
-    return render(request,"index.html",context=context)
+    
+    return render,HttpResponse(request,"index.html",context=context)
 
