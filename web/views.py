@@ -1,7 +1,11 @@
 # default
 import json
+import os
+
 from django.shortcuts import render
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse,Http404
+from django.conf import settings
+
 from users.models import Clients, Profile,Address,Education,Experience,Skill
 from web.models import Subscribe,Testimonial,Contact
 from works.models import Service, Project
@@ -63,7 +67,6 @@ def subscribe(request):
     return HttpResponse(json.dumps(response_data),content_type="application/javascript")
 
 
-
 def contact(request):
     email = request.POST.get("email")
     name = request.POST.get("name")
@@ -90,3 +93,16 @@ def contact(request):
             "title" : "You are already subscribed."
         }
     return HttpResponse(json.dumps(response_data),content_type="application/javascript")
+
+
+def download(request,path):
+    file_path=os.path.join(settings.MEDIA_ROOT,path)
+
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response=HttpResponse(fh.read(),content_type="application/adminupload")
+            response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
+            return response
+    
+    raise Http404
+

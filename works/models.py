@@ -1,5 +1,6 @@
 from django.db import models
 
+
 PROJECT_CATEGORY_CHOICES = (
     ('apps', 'Apps'),
     ('template', 'Template'),
@@ -8,6 +9,8 @@ PROJECT_CATEGORY_CHOICES = (
     ('graphic', 'Graphic'),
     ('wireframes','Wireframes')
 )
+
+
 class Service(models.Model):
     image = models.ImageField(upload_to="service/")
     title = models.CharField(max_length=255)
@@ -15,6 +18,7 @@ class Service(models.Model):
 
     def __str__(self):
         return self.title
+        
 
 class Project(models.Model):
     thumbnail = models.ImageField(upload_to="projects/thumbnails/", blank=True, null=True)

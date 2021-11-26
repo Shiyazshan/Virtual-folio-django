@@ -53,7 +53,7 @@
             <div class="container">
                 <div class="left">
                     <div class="img-container">
-                        <img src="{% static 'images/profile.jfif' %}" alt="" />
+                        <img src="{{profile.image.url}}" alt="" />
                         <div class="box"></div>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         <li><h4><b>Age : </b>{{profile.age}}</h4></li>
                         <li><h4><b>Gender : </b>{{profile.gender}}</h4></li>
                     </ul>
-                    <a href="#" class="button">
+                    <a href="{{profile.resume.url}}" download="{{profile.resume.url}}" class="button">
                         Download CV
                     </a>
                 </div>

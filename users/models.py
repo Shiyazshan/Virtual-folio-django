@@ -17,7 +17,7 @@ class Profile(models.Model):
     description = models.TextField()
     age = models.IntegerField()
     gender = models.CharField(max_length=255, choices=PROFILE_GENDER)
-    resume = models.FileField(upload_to="profile/")
+    resume = models.FileField(upload_to="media")
 
     def __str__(self):
         return self.name
@@ -27,6 +27,9 @@ class Address(models.Model):
     district = models.CharField(max_length=255)
     state = models.CharField(max_length=255)
 
+    def __str__(self):
+            return self.district
+
 
 class Education(models.Model):
     year = models.IntegerField()
@@ -34,12 +37,18 @@ class Education(models.Model):
     university = models.CharField(max_length=255)
     description = models.TextField()
 
+    def __str__(self):
+        return self.course
+
 
 class Experience(models.Model):
     year = models.IntegerField()
     course = models.CharField(max_length=255)
     university = models.CharField(max_length=255)
     description = models.TextField()
+
+    def __str__(self):
+        return self.course
 
 
 class Skill(models.Model):
