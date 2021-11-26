@@ -16,7 +16,7 @@ class Profile(models.Model):
     address = models.ForeignKey("users.Address",on_delete = models.CASCADE,blank=True,null=True)
     description = models.TextField()
     age = models.IntegerField()
-    gender = models.TextField(choices=PROFILE_GENDER)
+    gender = models.CharField(max_length=255, choices=PROFILE_GENDER)
     resume = models.FileField(upload_to="profile/")
 
     def __str__(self):

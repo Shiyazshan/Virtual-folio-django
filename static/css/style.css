@@ -1295,6 +1295,7 @@ footer section.wrapper div.bottom form input[type=email] {
 	width: 30%;
 	border-radius: 75;
 	border-radius: 4px;
+	color: #fff;
 }
 footer section.wrapper div.bottom form input[type=submit]{
 	background: #2a60f6;

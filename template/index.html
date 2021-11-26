@@ -38,13 +38,13 @@
                     <a href="" class="button">En</a>
                 </div>
             </header>
-            {% for single in profile %}
+            <!-- {% if profile%} -->
             <section class="wrapper">
                         <small>Welcome</small>
-                        <h1> {{single.name}}</h1>
-                        <a href="#" class="text">{{single.designation}}</a>
+                        <h1> {{profile.name}}</h1>
+                        <a href="#" class="text">{{profile.designation}}</a>
             </section>
-            {% endfor %}
+            
         </section>
     </section>
     <section id="profile">
@@ -58,26 +58,22 @@
                     </div>
                 </div>
                 <div class="right">
-                
-                    <h1>Mohammed Shiyas </h1>
-                    <h6>UI/UX & Web Designer</h6>
-                    <p>Creating user-centered designs by understanding business requirements,
-                        and user feedback. Creating user flows, wireframes, prototypes and mockups.
-                        Translating requirements into style guides, design systems, design patterns
-                        and attractive user interfaces.
+                    <h1>{{profile.name}} </h1>
+                    <h6>{{profile.designation}}</h6>
+                    <p>{{profile.description}}
                     </p>
                     <ul>
-                        <li><h4><b>From : </b>Malappuram, Kerala</h4></li>
+                        <li><h4><b>From : </b>{{profile.address.district}},{{profile.address.state}}</h4></li>
                         <li><h4><b>Lives in : </b> Ernankulam, Kerala</h4></li>
-                        <li><h4><b>Age : </b>24</h4></li>
-                        <li><h4><b>Gender : </b>Male</h4></li>
+                        <li><h4><b>Age : </b>{{profile.age}}</h4></li>
+                        <li><h4><b>Gender : </b>{{profile.gender}}</h4></li>
                     </ul>
                     <a href="#" class="button">
                         Download CV
                     </a>
                 </div>
             </div>
-           
+            <!-- {% endif %} -->
         </section>
     </section>
     <section id="myskills">
@@ -184,17 +180,20 @@
     <section id="education">
         <section class="wrapper">
             <section class="items">
+                
                 <div class="left">
                     <h3>Education</h3>
+                    {% for educations in education %}
                     <div class="item">
-                        <span class="current"><h2>2010</h2></span>
+                        <span class="current"><h2>{{educations.year}}</h2></span>
                         <div class="content">
-                            <h4>Specialize of course</h4>
-                            <small>University of study</small>
-                            <p>There are many variation of lore ipsum available, but majority has suffered</p>
+                            <h4>{{educations.course}}</h4>
+                            <small>{{educations.university}}</small>
+                            <p>{{educations.description}}</p>
                         </div>
                     </div>
-                    <div class="item">
+                    {% endfor %}
+                    <!-- <div class="item">
                         <h2>2009</h2>
                         <div class="content">
                             <h4>Specialize of course</h4>
@@ -209,19 +208,21 @@
                             <small>University of study</small>
                             <p>There are many variation of lore ipsum available, but majority has suffered</p>
                         </div>
-                    </div>
-                </div>
+                    </div> -->
+                </div> 
                 <div class="right">
                     <h3>Experience</h3>
+                    {% for Experience in experience %}
                     <div class="item">
-                        <span class="current"><h2>2017-Current</h2></span>
+                        <span class="current"><h2>{{Experience.year}}</h2></span>
                         <div class="content">
-                            <h4>Specialize of course</h4>
-                            <small>University of study</small>
-                            <p>There are many variation of lore ipsum available, but majority has suffered</p>
+                            <h4>{{Experience.course}}</h4>
+                            <small>{{Experience.university}}</small>
+                            <p>{{Experience.description}}</p>
                         </div>
                     </div>
-                    <div class="item">
+                    {% endfor %}
+                    <!-- <div class="item">
                         <h2>2014</h2>
                         <div class="content">
                             <h4>Specialize of course</h4>
@@ -235,8 +236,8 @@
                             <h4>Specialize of course</h4>
                             <small>University of study</small>
                             <p>There are many variation of lore ipsum available, but majority has suffered</p>
-                        </div>
-                    </div>
+                        </div> 
+                    </div> -->
                 </div>
             </section>
         </section>
@@ -251,32 +252,10 @@
                     <div class="image-container">
                         <img src="{{service.image.url}}" alt="paint-bucket" />
                     </div>
-                    <h2>{{service.title}</h2>
+                    <h2>{{service.title}}</h2>
                     <p>{{service.description}}</p>
                 </li>
                 {% endfor %}
-                <!-- <li>
-                    <div class="image-container">
-                        <img src="{% static 'images/search.png' %}" alt="Search">
-                    </div>
-                    
-                    <h2>SEO</h2>
-                    <p>There are many variations of passages of lorem ipsum available</p>
-                </li>
-                <li>
-                    <div class="image-container">
-                        <img src="{% static 'images/uiux-design.png' %}" alt="uiux-design" />
-                    </div>
-                    <h2>UI/UX Design</h2>
-                    <p>There are many variations of passages of lorem ipsum available</p>
-                </li>
-                <li>
-                    <div class="image-container">
-                        <img src="{% static 'images/developer.png' %}" alt="Developer" />
-                    </div>
-                    <h2>Web Development</h2>
-                    <p>There are many variations of passages of lorem ipsum available</p>
-                </li> -->
             </ul>
         </section>
     </section>
@@ -517,12 +496,16 @@
                     </div>
                 </div>
                 <div class="right">
-                    <form action="">
-                        <input type="text" placeholder="Your Name" class="name">
-                        <input type="email" placeholder="Email Address">
-                        <input type="text" placeholder="Subject" class="subject">
-                        <textarea name="Enter message here" id="message" cols="30" rows="10" placeholder="Enter message here"></textarea>
-                        <input type="submit" value="Send Message">
+                    <form action="{% url 'web:contact' %}"
+                        method="post"
+                        class="ajax"
+                    >
+                        {% csrf_token %}
+                        <input type="text" name="name" nameplaceholder="Your Name" class="name">
+                        <input type="email" name="email" placeholder="Email Address">
+                        <input type="text" name="subject" placeholder="Subject" class="subject">
+                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Enter message here"></textarea>
+                        <input type="submit" name="submit" value="Send Message">
                     </form>
                 </div>
             </div>
@@ -554,13 +537,28 @@
             </div>
             <div class="bottom">
                 <h3>Subscribe</h3>
-                <form action="">
-                    <input type="email" placeholder="Email address">
-                    <input type="submit" value="Subscribe">
+                <form action="{% url 'web:subscribe' %}"
+                      method="post"
+                      class="ajax"
+                >
+
+                    {% csrf_token %}
+                    <input type="email" 
+                           name="email"
+                           placeholder="Email address"
+                    >
+                    <input type="submit" 
+                           name="submit"
+                           value="Subscribe"
+                    >
                 </form>
                 <small>Copyright &copy;2020.All right reserved | This template is made by <span> &#9825; </span> <a href="#">MAcode ID</a></small>
             </div>
         </section>
     </footer>
+
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="{% static 'js/sweetalert2@11.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

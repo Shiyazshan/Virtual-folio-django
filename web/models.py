@@ -17,3 +17,6 @@ class Contact(models.Model):
 
 class Subscribe(models.Model):
     email = models.EmailField()
+
+    def __str__(self):
+        return self.email

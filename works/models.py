@@ -9,7 +9,7 @@ PROJECT_CATEGORY_CHOICES = (
     ('wireframes','Wireframes')
 )
 class Service(models.Model):
-    image = models.FileField(upload_to="service/")
+    image = models.ImageField(upload_to="service/")
     title = models.CharField(max_length=255)
     description = models.TextField()
 

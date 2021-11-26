@@ -1,5 +1,5 @@
 from django.urls import path
-from web.views import index
+from web.views import index,subscribe,contact
 
 
 app_name = "web"
@@ -7,5 +7,6 @@ app_name = "web"
 
 urlpatterns = [
     path("",index, name="index"),
-    path("subscribe/",index, name="subscribe")
+    path("subscribe/",subscribe, name="subscribe"),
+    path("contact/", contact, name="contact"),
 ]
