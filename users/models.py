@@ -54,8 +54,7 @@ class Experience(models.Model):
 class Skill(models.Model):
     name = models.CharField(max_length=255)
     user_id = models.ForeignKey("users.Profile",on_delete = models.CASCADE,blank=True,null=True)
-    rating = models.IntegerField()
-
+    
     def __str__(self):
         return self.name
 
@@ -64,6 +63,15 @@ class Clients(models.Model):
     name =  models.CharField(max_length=255)
     image = models.FileField(upload_to="service/")
     designation = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
+class SkillItem(models.Model):
+    rating = models.IntegerField()
+    name = models.CharField(max_length=128)
+    skill = models.ForeignKey("users.Skill",on_delete = models.CASCADE)
 
     def __str__(self):
         return self.name

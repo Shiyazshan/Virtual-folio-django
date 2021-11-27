@@ -6,5 +6,5 @@ app_name = "works"
 
 
 urlpatterns = [
-    path('/', views.index),
+    path('', views.index),
 ]

@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http.response import HttpResponse,Http404
 from django.conf import settings
 
-from users.models import Clients, Profile,Address,Education,Experience,Skill
+from users.models import Clients, Profile,Address,Education,Experience,Skill, SkillItem
 from web.models import Subscribe,Testimonial,Contact
 from works.models import Service, Project
 
@@ -14,8 +14,9 @@ from works.models import Service, Project
 def index(request):
     profile = Profile.objects.get(user_id=1)
     skills = Skill.objects.filter(user_id=profile.pk)
+    skill_items = SkillItem.objects.filter(skill__user_id=profile.pk)
     education = Education.objects.all()
-    experience = Experience.objects.all()
+    experiences = Experience.objects.all()
     services = Service.objects.all()
     project = Project.objects.all()
     testimonial = Testimonial.objects.all()
@@ -29,8 +30,9 @@ def index(request):
     context = {
         'profile' : profile,
         'skills' : skills,
+        'skill_items' : skill_items,
         'education' : education,
-        'experience' : experience,
+        'experiences' : experiences,
         'services' : services,
         'project' : project,
         'testimonial' : testimonial,

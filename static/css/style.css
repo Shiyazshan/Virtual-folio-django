@@ -343,28 +343,33 @@ background: white;
 	padding-bottom: 120px;
 }
 
-#myskills section.wrapper section.container div.left {
-	width: 50%;
+#myskills section.wrapper section.container div.box {
+	width: 48%;
 }
-#myskills section.wrapper section.container div.left div.item{
+#myskills section.wrapper section.container div.box div.item{
 	margin-bottom: 12px;
 }
-#myskills section.wrapper section.container div.left div.item h5{
+#myskills section.wrapper section.container div.box div.item h5{
 	font-size: 20px;
 	font-weight: 700;
 	margin-bottom: 15px;
 }
-#myskills section.wrapper section.container div.left div.item h4{
+#myskills section.wrapper section.container div.box div.item h4{
 	font-weight: 600;
 	margin-bottom: 5px;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar{
+#myskills section.wrapper section.container div.box div.item div.skillbar{
 	border: 3px solid #2a60f6;
 	width: 100%;
 	border-radius: 10px;
 	padding: 1px;
+	margin-bottom: 20px;
+	margin-right: 30px;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.percentage{
+#myskills section.wrapper section.container div.box div.item div.skillbar:last-child{
+	margin-right: 0;
+}
+#myskills section.wrapper section.container div.box div.item div.skillbar div.percentage{
 	background: #2a60f6;
 	width: 86%;
 	border-radius: 10px;
@@ -379,14 +384,14 @@ background: white;
     background-size: 200% 100%;
     transition: all .75s ease-in;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.percentage:hover{
+#myskills section.wrapper section.container div.box div.item div.skillbar div.percentage:hover{
 	background-position: 0 0;
 	color:black;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.percentage small{
+#myskills section.wrapper section.container div.box div.item div.skillbar div.percentage small{
 
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.php{
+#myskills section.wrapper section.container div.box div.item div.skillbar div.php{
 	background: #2a60f6;
 	width: 80%;
 	border-radius: 10px;
@@ -401,11 +406,11 @@ background: white;
     background-size: 200% 100%;
     transition: all .75s ease-in;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.php:hover{
+#myskills section.wrapper section.container div.box div.item div.skillbar div.php:hover{
 	background-position: 0 0;
 	color:black;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.html{
+#myskills section.wrapper section.container div.box div.item div.skillbar div.html{
 	background: #2a60f6;
 	width: 100%;
 	border-radius: 10px;
@@ -420,11 +425,11 @@ background: white;
     background-size: 200% 100%;
     transition: all .75s ease-in;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.html:hover{
+#myskills section.wrapper section.container div.box div.item div.skillbar div.html:hover{
 	background-position: 0 0;
 	color:black;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.python{
+#myskills section.wrapper section.container div.box div.item div.skillbar div.python{
 	background: #2a60f6;
 	width: 90%;
 	border-radius: 10px;
@@ -439,86 +444,7 @@ background: white;
     background-size: 200% 100%;
     transition: all .75s ease-in;
 }
-#myskills section.wrapper section.container div.left div.item div.skillbar div.python:hover{
-	background-position: 0 0;
-	color:black;
-}
-#myskills section.wrapper section.container div.right{
-	width: 50%;
-	margin-left: 63px;
-}
-#myskills section.wrapper section.container div.right div.item{
-	margin-bottom: 12px;
-}
-#myskills section.wrapper section.container div.right div.item h4{
-	font-weight: 600;
-	margin-bottom: 5px;
-}
-#myskills section.wrapper section.container div.right div.item h5{
-	font-size: 20px;
-	font-weight: 700;
-	margin-bottom: 15px;
-}
-#myskills section.wrapper section.container div.right div.item div.skillbar{
-	border: 3px solid #2a60f6;
-	width: 100%;
-	border-radius: 10px;
-	padding: 1px;
-}
-#myskills section.wrapper section.container div.right div.item div.skillbar div.design{
-	background: #2a60f6;
-	width: 92%;
-	border-radius: 10px;
-	color: white;
-	text-align: center;
-	background-image: linear-gradient(to left,
-    transparent,
-    transparent 50%,
-    #e5ff00 50%,
-    #e5ff00);
-  	background-position: 100% 0;
-    background-size: 200% 100%;
-    transition: all .75s ease-in;
-}
-#myskills section.wrapper section.container div.right div.item div.skillbar div.design:hover{
-	background-position: 0 0;
-	color:black;
-}
-#myskills section.wrapper section.container div.right div.item div.skillbar div.web{
-	background: #2a60f6;
-	width: 99%;
-	border-radius: 10px;
-	color: white;
-	text-align: center;
-	background-image: linear-gradient(to left,
-    transparent,
-    transparent 50%,
-    #e5ff00 50%,
-    #e5ff00);
-  	background-position: 100% 0;
-    background-size: 200% 100%;
-    transition: all .75s ease-in;
-}
-#myskills section.wrapper section.container div.right div.item div.skillbar div.web:hover{
-	background-position: 0 0;
-	color:black;
-}
-#myskills section.wrapper section.container div.right div.item div.skillbar div.logo{
-	background: #2a60f6;
-	width: 79%;
-	border-radius: 10px;
-	color: white;
-	text-align: center;
-	background-image: linear-gradient(to left,
-    transparent,
-    transparent 50%,
-    #e5ff00 50%,
-    #e5ff00);
-  	background-position: 100% 0;
-    background-size: 200% 100%;
-    transition: all .75s ease-in;
-}
-#myskills section.wrapper section.container div.right div.item div.skillbar div.logo:hover{
+#myskills section.wrapper section.container div.box div.item div.skillbar div.python:hover{
 	background-position: 0 0;
 	color:black;
 }
@@ -840,6 +766,9 @@ background: white;
 	padding: 2px;
 	border: 1px solid #7c7c7c;
 	border-radius: 20px;
+}
+#portfolio section.wrapper section.container div.top ul li div.border:hover{
+	cursor: pointer;
 }
 #portfolio section.wrapper section.container div.top ul li:hover div.border h4 {
 	background: #2a60f6;
