@@ -1,14 +1,15 @@
 # default
 import json
 import os
+from types import ClassMethodDescriptorType
 
 from django.shortcuts import render
 from django.http.response import HttpResponse,Http404
 from django.conf import settings
 
-from users.models import Clients, Profile,Address,Education,Experience,Skill, SkillItem
+from users.models import Client, Profile,Address,Education,Experience,Skill, SkillItem,Client
 from web.models import Subscribe,Testimonial,Contact
-from works.models import Service, Project
+from works.models import Service, Project,Category
 
 
 def index(request):
@@ -20,12 +21,14 @@ def index(request):
     services = Service.objects.all()
     project = Project.objects.all()
     testimonial = Testimonial.objects.all()
-    total_clients = Clients.objects.all().count()
+    total_clients = Client.objects.all().count()
     completed_project_count = project.filter(is_completed=True).count()
     satisfied_clients_count = project.filter(is_satisfied=True).count()
     pending_projects_count = project.count() - completed_project_count
     contact = Contact.objects.all()
     address = Address.objects.all()
+    category = Category.objects.all()
+    clients = Client.objects.all()
 
     context = {
         'profile' : profile,
@@ -41,6 +44,8 @@ def index(request):
         'pending_projects_count' : pending_projects_count,
         'contact' : contact,
         'address' : address,
+        'category' : category,
+        'clients' : clients
     }
 
     return render(request, "index.html",context = context)
@@ -85,14 +90,14 @@ def contact(request):
         )
         response_data = {
             "status" :"success",
-            "message" : "You subscribed to our newsletter successfully",
-            "title" : "Successfully Registered"
+            "message" : "Your message has been successfully sent. We will contact you very soon!",
+            "title" : "Thank you for contacting us"
         }
     else:
         response_data = {
             "status" :"warning",
-            "message" : "You are already a member. No need to register again",
-            "title" : "You are already subscribed."
+            "message" : "This email address is already being used",
+            "title" : "Add another email address that you own"
         }
     return HttpResponse(json.dumps(response_data),content_type="application/javascript")
 
@@ -104,6 +109,7 @@ def download(request,path):
         with open(file_path, 'rb') as fh:
             response=HttpResponse(fh.read(),content_type="application/adminupload")
             response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
+            
             return response
     
     raise Http404

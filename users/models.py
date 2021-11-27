@@ -53,13 +53,13 @@ class Experience(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=255)
-    user_id = models.ForeignKey("users.Profile",on_delete = models.CASCADE,blank=True,null=True)
+    user_id = models.ForeignKey("users.Profile", on_delete=models.CASCADE,blank=True,null=True)
     
     def __str__(self):
         return self.name
 
 
-class Clients(models.Model):
+class Client(models.Model):
     name =  models.CharField(max_length=255)
     image = models.FileField(upload_to="service/")
     designation = models.CharField(max_length=255)
