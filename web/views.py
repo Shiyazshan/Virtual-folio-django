@@ -9,7 +9,7 @@ from django.conf import settings
 
 from users.models import Client, Profile,Address,Education,Experience,Skill, SkillItem,Client
 from web.models import Subscribe,Testimonial,Contact
-from works.models import Service, Project,Category
+from works.models import Service, Project
 
 
 def index(request):
@@ -27,7 +27,7 @@ def index(request):
     pending_projects_count = project.count() - completed_project_count
     contact = Contact.objects.all()
     address = Address.objects.all()
-    category = Category.objects.all()
+    category = Project.objects.all()
     clients = Client.objects.all()
 
     context = {
@@ -42,6 +42,7 @@ def index(request):
         'total_clients' : total_clients,
         'satisfied_clients_count' : satisfied_clients_count,
         'pending_projects_count' : pending_projects_count,
+        'completed_project_count' : completed_project_count,
         'contact' : contact,
         'address' : address,
         'category' : category,
@@ -109,7 +110,7 @@ def download(request,path):
         with open(file_path, 'rb') as fh:
             response=HttpResponse(fh.read(),content_type="application/adminupload")
             response['Content-Disposition']='inline;filename='+os.path.basename(file_path)
-            
+
             return response
     
     raise Http404
