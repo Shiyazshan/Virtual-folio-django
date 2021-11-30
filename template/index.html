@@ -180,10 +180,10 @@
                         <h2>Portfolio</h2>
                         <h1>See my work</h1>
                         <ul>
-                            {% for categoris in category %}
+                            {% for category in categories %}
                             <li>
                                 <div class="border">
-                                    <a href="">All</a>
+                                    <a href="{% url 'web:index' %}?category={{category.name}}">{{category.name}}</a>
                                 </div>
                             </li>
                            {% endfor %}
@@ -191,60 +191,17 @@
                     </div>
                     <div class="bottom">
                         <ul>
+                            {% for project in projects %}
                             <li>
                                 <div class="box">
-                                    <img src="{% static 'images/work/work-1.jpg' %}" alt="work">
+                                    <img src="{{project.thumbnail.url}}" alt="work">
                                     <div class="text">
-                                        <h2>Mobile Travel App</h2>
+                                        <h2>{{project.title}}</h2>
                                         <h5>- Travel, Discovery</h5>
                                     </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="box">
-                                    <img src="{% static 'images/work/work-2.jpg' %}" alt="work">
-                                    <div class="text">
-                                        <h2>Music App</h2>
-                                        <h5>- Musics</h5>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="box">
-                                    <img src="{% static 'images/work/work-3.jpg' %}" alt="work">
-                                    <div class="text">
-                                        <h2>Gaming Dashboard</h2>
-                                        <h5>- Games, Streaming</h5>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="box">
-                                    <img src="{% static 'images/work/work-4.jpg' %}" alt="work">
-                                    <div class="text">
-                                        <h2>Drugs Delivery App</h2>
-                                        <h5>- Health, Drugs</h5>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="box">
-                                    <img src="{% static 'images/work/work-5.jpg' %}" alt="work">
-                                    <div class="text">
-                                        <h2>Musics Discover</h2>
-                                        <h5>- Musics, Dashboards</h5>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="box">
-                                    <img src="{% static 'images/work/work-6.jpg' %}" alt="work" />
-                                    <div class="text">
-                                        <h2>Game Streaming</h2>
-                                        <h5>- Games Streaming</h5>
-                                    </div>
-                                </div>
-                            </li>
+                            {% endfor %}
                         </ul>
                         <a href="" class="button">Load More</a>
                     </div>

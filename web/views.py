@@ -9,28 +9,35 @@ from django.conf import settings
 
 from users.models import Client, Profile,Address,Education,Experience,Skill, SkillItem,Client
 from web.models import Subscribe,Testimonial,Contact
-from works.models import Service, Project
+from works.models import Service, Project, Category
 
 
 def index(request):
-
+    category_name = request.GET.get('category')
     profile = Profile.objects.get(user_id=1)
     skills = Skill.objects.filter(user_id=profile.pk)
     skill_items = SkillItem.objects.filter(skill__user_id=profile.pk)
     education = Education.objects.all()
     experiences = Experience.objects.all()
     services = Service.objects.all()
-    project = Project.objects.all()
+    projects = Project.objects.all()
     testimonial = Testimonial.objects.all()
     total_clients = Client.objects.all().count()
-    completed_project_count = project.filter(is_completed=True).count()
-    satisfied_clients_count = project.filter(is_satisfied=True).count()
-    pending_projects_count = project.count() - completed_project_count
+    completed_project_count = projects.filter(is_completed=True).count()
+    satisfied_clients_count = projects.filter(is_satisfied=True).count()
+    pending_projects_count = projects.count() - completed_project_count
     contact = Contact.objects.all()
     address = Address.objects.all()
-    category = Project.objects.all()
+    categories = Category.objects.all()
     clients = Client.objects.all()
-
+    
+    if category_name:
+        if Project.objects.filter(category__name=category_name).exists():
+            projects = Project.objects.filter(category__name=category_name)[:5]
+        else:
+           projects = Project.objects.all()[:5] 
+    else:
+        projects = Project.objects.all()[:5]
 
     context = {
         'profile' : profile,
@@ -39,7 +46,7 @@ def index(request):
         'education' : education,
         'experiences' : experiences,
         'services' : services,
-        'project' : project,
+        'projects' : projects,
         'testimonial' : testimonial,
         'total_clients' : total_clients,
         'satisfied_clients_count' : satisfied_clients_count,
@@ -47,7 +54,7 @@ def index(request):
         'completed_project_count' : completed_project_count,
         'contact' : contact,
         'address' : address,
-        'category' : category,
+        'categories' : categories,
         'clients' : clients
     }
 
