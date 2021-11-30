@@ -1,5 +1,5 @@
 from django.contrib import admin
-from works.models import Service, Project
+from works.models import Service, Project, Category
 
 
 class ServiceAdmin(admin.ModelAdmin):
@@ -7,4 +7,4 @@ class ServiceAdmin(admin.ModelAdmin):
 admin.site.register(Service)
 
 admin.site.register(Project)
-# admin.site.register(Category)
+admin.site.register(Category)

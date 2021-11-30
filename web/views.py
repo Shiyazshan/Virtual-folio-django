@@ -13,6 +13,7 @@ from works.models import Service, Project
 
 
 def index(request):
+
     profile = Profile.objects.get(user_id=1)
     skills = Skill.objects.filter(user_id=profile.pk)
     skill_items = SkillItem.objects.filter(skill__user_id=profile.pk)
@@ -29,6 +30,7 @@ def index(request):
     address = Address.objects.all()
     category = Project.objects.all()
     clients = Client.objects.all()
+
 
     context = {
         'profile' : profile,

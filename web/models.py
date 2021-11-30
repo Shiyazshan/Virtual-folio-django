@@ -2,9 +2,10 @@ from django.db import models
 
 
 class Testimonial(models.Model):
-    message = models.TextField()
-
-
+    message = models.TextField(default=0)
+    client = models.ForeignKey("users.Client", on_delete=models.CASCADE,blank=True,null=True)
+ 
+ 
 class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()

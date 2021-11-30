@@ -180,41 +180,13 @@
                         <h2>Portfolio</h2>
                         <h1>See my work</h1>
                         <ul>
+                            {% for categoris in category %}
                             <li>
                                 <div class="border">
-                                    <h4>All</h4>
+                                    <a href="">All</a>
                                 </div>
                             </li>
-                            <li>
-                                <div class="border">
-                                    <h4>Apps</h4>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="border">
-                                    <h4>Template</h4>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="border">
-                                    <h4>IOS</h4>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="border">
-                                    <h4>UI/UX</h4>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="border">
-                                    <h4>Graphic</h4>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="border">
-                                    <h4>Wireframes</h4>
-                                </div>
-                            </li>
+                           {% endfor %}
                         </ul>
                     </div>
                     <div class="bottom">

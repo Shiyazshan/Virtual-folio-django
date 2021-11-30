@@ -755,7 +755,7 @@ background: white;
 	margin-right: 5px;
 	margin-bottom: 10px;
 }
-#portfolio section.wrapper section.container div.top ul li div.border h4{
+#portfolio section.wrapper section.container div.top ul li div.border a{
 	font-size: 14px;
 	padding: 4px 10px;
 	border-radius: 20px;
@@ -770,7 +770,7 @@ background: white;
 #portfolio section.wrapper section.container div.top ul li div.border:hover{
 	cursor: pointer;
 }
-#portfolio section.wrapper section.container div.top ul li:hover div.border h4 {
+#portfolio section.wrapper section.container div.top ul li:hover div.border a {
 	background: #2a60f6;
 	color: white;
 }
